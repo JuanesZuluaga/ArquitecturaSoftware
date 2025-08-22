@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Parcial 1{% endblock %}</title>
+
+</head>
+<body>
+  <h1>Gestión de Vuelos Jose Maria Cordoba/Rionegro</h1>
+
+  <!-- navegación -->
+  <nav>
+    <a href="{% url 'vuelos:registrar' %}">Registrar vuelo</a>
+    <a href="{% url 'vuelos:listar' %}">Listar vuelos</a>
+    <a href="{% url 'vuelos:estadisticas' %}">Estadísticas</a>
+  </nav>
+
+  <!-- mensajes de Django -->
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% block content %}{% endblock %}
+</body>
+</html>
